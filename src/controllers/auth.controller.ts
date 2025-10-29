@@ -1,5 +1,6 @@
 import type { Request, Response } from 'express';
 import { User } from '../models/user.model.js';
+import bcrypt from 'bcrypt';
 
 export const register = async (req: Request, res: Response) => {
   const { email, password } = req.body;
@@ -7,8 +8,8 @@ export const register = async (req: Request, res: Response) => {
     return res.status(400).json({ message: 'Email and password are required.' });
   }
 
-  // Hash the password (in production, use bcrypt)
-  const passwordHash = password; // Replace with bcrypt hash in real app
+  // Hash the password securely
+  const passwordHash = await bcrypt.hash(password, 10);
 
   try {
     const user = new User({ email, passwordHash });
