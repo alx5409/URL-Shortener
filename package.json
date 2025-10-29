@@ -2,9 +2,10 @@
   "name": "url-shortener",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/server.js",
+  "type": "module",
   "scripts": {
-    "start": "node index.js"
+    "start": "node dist/server.js"
   },
   "repository": {
     "type": "git",
@@ -19,9 +20,12 @@
   "homepage": "https://github.com/alx5409/URL-Shortener#readme",
   "dependencies": {
     "dotenv": "17.2.3",
-    "express": "5.1.0"
+    "express": "5.1.0",
+    "mongoose": "^8.19.2"
   },
   "devDependencies": {
-    "typescript": "^5.9.3"
+    "@types/express": "5.0.5",
+    "@types/mongoose": "^5.11.96",
+    "typescript": "5.9.3"
   }
 }
