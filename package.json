@@ -2,9 +2,10 @@
   "name": "url-shortener",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/server.js",
+  "type": "module",
   "scripts": {
-    "start": "node index.js"
+    "start": "node dist/server.js"
   },
   "repository": {
     "type": "git",
@@ -22,6 +23,7 @@
     "express": "5.1.0"
   },
   "devDependencies": {
-    "typescript": "^5.9.3"
+    "@types/express": "5.0.5",
+    "typescript": "5.9.3"
   }
 }
