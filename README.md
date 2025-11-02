@@ -1,5 +1,3 @@
-# URL-Shortener
-
 A simple URL Shortener backend API built with Node.js, TypeScript, Express, and MongoDB.
 
 ## Features (IN PROGRESS)
