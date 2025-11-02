@@ -5,7 +5,7 @@ import { authenticateToken } from '../middlewares/auth.middleware.js';
 const router = Router();
 
 // Example controller functions (replace with your actual implementations)
-const shortenUrl = (req: Request, res: Response) => {
+const shortenUrl = (_req: Request, res: Response) => {
   res.json({ message: 'URL shortened!' });
 };
 
