@@ -9,7 +9,7 @@ const shortenUrl = (_req: Request, res: Response) => {
   res.json({ message: 'URL shortened!' });
 };
 
-const getUserUrls = (req: Request, res: Response) => {
+const getUserUrls = (_req: Request, res: Response) => {
   res.json({ urls: [] });
 };
 
