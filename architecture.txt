@@ -1,40 +1,40 @@
 URL-Shortener/
 │
 ├── src/
-│   ├── controllers/      # Lógica de negocio de cada endpoint
+│   ├── controllers/      # Business logic for each endpoint
 │   │   ├── auth.controller.ts
 │   │   ├── url.controller.ts
 │   │   └── click.controller.ts
-│   ├── models/           # Esquemas y modelos de Mongoose
+│   ├── models/           # Mongoose schemas and models
 │   │   ├── user.model.ts
 │   │   ├── url.model.ts
 │   │   └── click.model.ts
-│   ├── routes/           # Definición de rutas/routers
+│   ├── routes/           # Route definitions/routers
 │   │   ├── auth.routes.ts
 │   │   ├── url.routes.ts
 │   │   └── click.routes.ts
-│   ├── middlewares/      # Middlewares personalizados (auth, error handler, etc)
+│   ├── middlewares/      # Custom middlewares (auth, error handler, etc)
 │   │   ├── auth.middleware.ts
 │   │   └── error.middleware.ts
-│   ├── utils/            # Funciones utilitarias y helpers
+│   ├── utils/            # Utility functions and helpers
 │   │   └── slug.util.ts
-│   ├── config/           # Configuración (DB, env, etc)
+│   ├── config/           # Configuration (DB, env, etc)
 │   │   └── db.ts
-│   ├── types/            # Tipos y definiciones TypeScript
+│   ├── types/            # TypeScript types and definitions
 │   │   └── index.d.ts
-│   ├── app.ts            # Configuración principal de la app (Express/Fastify)
-│   └── server.ts         # Punto de entrada (levanta el servidor)
+│   ├── app.ts            # Main app configuration (Express/Fastify)
+│   └── server.ts         # Entry point (starts the server)
 │
-├── tests/                # Pruebas unitarias e integración
+├── tests/                # Unit and integration tests
 │   ├── auth.test.ts
 │   ├── url.test.ts
 │   └── click.test.ts
 │
-├── .env.example          # Variables de entorno de ejemplo
+├── .env.example          # Example environment variables
 ├── .gitignore
-├── docker-compose.yml    # (opcional) Para levantar MongoDB y la app localmente
-├── Dockerfile            # (opcional) Para contenerizar la app
+├── docker-compose.yml    # (optional) For running MongoDB and the app locally
+├── Dockerfile            # (optional) For containerizing the app
 ├── package.json
 ├── tsconfig.json
-├── jest.config.js        # (si usas Jest para testing)
+├── jest.config.js        # (if using Jest for testing)
 └── README.md
