@@ -1,17 +1,9 @@
 import { Router } from 'express';
-import type { Request, Response } from 'express'
+
+import { shortenUrl, getUserUrls } from '../controllers/url.controller.js';
 import { authenticateToken } from '../middlewares/auth.middleware.js';
 
 const router = Router();
-
-// Example controller functions (replace with your actual implementations)
-const shortenUrl = (_req: Request, res: Response) => {
-  res.json({ message: 'URL shortened!' });
-};
-
-const getUserUrls = (_req: Request, res: Response) => {
-  res.json({ urls: [] });
-};
 
 // Protect routes with authenticateToken middleware
 router.post('/shorten', authenticateToken, shortenUrl);
