@@ -4,8 +4,13 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import { validationResult } from 'express-validator';
 
+type AuthBody = {
+  email: string;
+  password: string;
+};
+
 // User registration controller
-export const register = async (req: Request, res: Response) => {
+export const register = async (req: Request<{}, {}, AuthBody>, res: Response) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return res.status(400).json({ errors: errors.array() });
@@ -33,7 +38,7 @@ export const register = async (req: Request, res: Response) => {
 };
 
 // User login controller
-export const login = async (req: Request, res: Response) => {
+export const login = async (req: Request<{}, {}, AuthBody>, res: Response) => {
   const { email, password } = req.body;
   // Early return if email or password is missing
   if (!email || !password) {
@@ -55,8 +60,9 @@ export const login = async (req: Request, res: Response) => {
   // Generate JWT token
   const token = jwt.sign(
     { userId: user._id, email: user.email },
-    process.env.JWT_SECRET as string, // Use the secret from .env
-    { expiresIn: '1d' });   // Token valid for 1 day
+    process.env.JWT_SECRET as string,
+    { expiresIn: '1d' }
+  );
   res.status(200).json({ message: 'Login successful!', token });
 };
 

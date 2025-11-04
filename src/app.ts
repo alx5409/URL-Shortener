@@ -2,6 +2,7 @@ import express from 'express';
 import type { Request, Response } from 'express';
 
 import authRoutes from './routes/auth.routes.js'
+import urlRoutes from './routes/url.routes.js';
 import { errorHandler } from './middlewares/error.middleware.js';
 
 const app = express();
@@ -15,6 +16,7 @@ app.get('/', (_req: Request, res: Response) => {
 
 // Public routes
 app.use('/api/auth', authRoutes)
+app.use('/api/urls', urlRoutes)
 
 app.use(errorHandler);
 

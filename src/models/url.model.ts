@@ -2,7 +2,7 @@ import { Schema, model, Types } from "mongoose";
 
 const urlSchema = new Schema({
 
-  userId: { type: Types.ObjectId, ref: 'User', required: true },
+  userId: { type: Types.ObjectId, ref: 'users', required: true },
 
   originalUrl: { type: String, required: true },
 
@@ -10,4 +10,4 @@ const urlSchema = new Schema({
 
 });
 
-export const Url = model('Url', urlSchema);
+export const Url = model('urls', urlSchema);
