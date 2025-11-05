@@ -39,6 +39,9 @@ export const redirectToOriginal = async (req: Request, res: Response) => {
   const { slug } = req.params;
   const urlDoc = await Url.findOne({ shortUrl: slug });
 
+  console.log('Slug received:', slug);
+  console.log('URL Document found:', urlDoc);
+
   if (!urlDoc) {
     return res.status(404).json({ message: 'Short URL not found.' });
   }
