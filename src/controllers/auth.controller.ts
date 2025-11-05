@@ -63,6 +63,7 @@ export const login = async (req: Request<{}, {}, AuthBody>, res: Response) => {
     process.env.JWT_SECRET as string,
     { expiresIn: '1d' }
   );
+  console.log('Generated JWT token for user:', user._id);
   res.status(200).json({ message: 'Login successful!', token });
 };
 
