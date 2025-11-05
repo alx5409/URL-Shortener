@@ -49,6 +49,13 @@ export const redirectToOriginal = async (req: Request, res: Response) => {
 };
 
 // Controller to get all URLs for a user
-export const getUserUrls = (_req: Request, res: Response) => {
-  res.json({ urls: [] });
+export const getUserUrls = async (req: Request, res: Response) => {
+  const userId = req.user?.userId;
+  if (!userId) {
+    return res.status(401).json({ message: 'Unauthorized: User ID is missing.' });
+  }
+
+  // Find all URLs for the user
+  const urls = await Url.find({ userId: userId }).select('-__v -_id -userId');
+  res.json({ urls });
 };
