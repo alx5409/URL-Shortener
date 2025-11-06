@@ -8,9 +8,5 @@ declare module 'express' {
         email: string;
         password?: string;
         };
-        // body: {
-        //     originalUrl: string;
-        //     length?: number;
-        // };
     }
 }
