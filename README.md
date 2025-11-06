@@ -1,6 +1,6 @@
 A simple URL Shortener backend API built with Node.js, TypeScript, Express, and MongoDB.
 
-## Features (IN PROGRESS)
+## Features
 
 - Register and authenticate users 
 - Create short URLs for long links 
@@ -24,7 +24,7 @@ A simple URL Shortener backend API built with Node.js, TypeScript, Express, and 
    npm install
    ```
 3. **Set up environment variables**
-   - Copy `.env.example` to `.env` and fill in your MongoDB URI and other settings.
+   - Ask the author for the original .env variables or set yours with URL, mongoDB and JWT_SECRET
 4. **Build the project**
    ```
    npm run build
@@ -37,7 +37,11 @@ A simple URL Shortener backend API built with Node.js, TypeScript, Express, and 
 
 ## API Endpoints
 
-- `POST /api/auth/register` — Register a new user
+- `POST /api/auth/register`   — Register a new user
+- `GET /api/auth/login`       — Login existing users
+- `GET /api/urls/shorten`     — Shorten a url after login
+- `GET /api/urls/my-urls`     — Get all of the urls of an user
+- `GET /:slug`                — Redirect a shortened URL to the original
 
 ## Status
 

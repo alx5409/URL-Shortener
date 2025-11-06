@@ -3,38 +3,29 @@ URL-Shortener/
 ├── src/
 │   ├── controllers/      # Business logic for each endpoint
 │   │   ├── auth.controller.ts
-│   │   ├── url.controller.ts
-│   │   └── click.controller.ts
+│   │   └── url.controller.ts
 │   ├── models/           # Mongoose schemas and models
 │   │   ├── user.model.ts
-│   │   ├── url.model.ts
-│   │   └── click.model.ts
+│   │   └── url.model.ts
 │   ├── routes/           # Route definitions/routers
 │   │   ├── auth.routes.ts
-│   │   ├── url.routes.ts
-│   │   └── click.routes.ts
+│   │   └── url.routes.ts
 │   ├── middlewares/      # Custom middlewares (auth, error handler, etc)
 │   │   ├── auth.middleware.ts
 │   │   └── error.middleware.ts
 │   ├── utils/            # Utility functions and helpers
-│   │   └── slug.util.ts
-│   ├── config/           # Configuration (DB, env, etc)
+│   │   ├── slug.util.ts
+│   │   └── url.util.ts
+│   ├── config/           # Configuration (DB)
 │   │   └── db.ts
 │   ├── types/            # TypeScript types and definitions
 │   │   └── index.d.ts
 │   ├── app.ts            # Main app configuration (Express/Fastify)
 │   └── server.ts         # Entry point (starts the server)
 │
-├── tests/                # Unit and integration tests
-│   ├── auth.test.ts
-│   ├── url.test.ts
-│   └── click.test.ts
-│
-├── .env.example          # Example environment variables
+├── .env.example          # Enviroment variables
 ├── .gitignore
-├── docker-compose.yml    # (optional) For running MongoDB and the app locally
-├── Dockerfile            # (optional) For containerizing the app
+├── package-lock.json
 ├── package.json
 ├── tsconfig.json
-├── jest.config.js        # (if using Jest for testing)
 └── README.md

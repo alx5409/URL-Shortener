@@ -1,7 +1,8 @@
 import type { Request, Response } from 'express';
+import { hash, compare } from 'bcrypt';
+import { sign } from 'jsonwebtoken';
+
 import { User } from '../models/user.model.js';
-import bcrypt from 'bcrypt';
-import jwt from 'jsonwebtoken';
 import { validationResult } from 'express-validator';
 
 type AuthBody = {
@@ -22,7 +23,7 @@ export const register = async (req: Request<{}, {}, AuthBody>, res: Response) =>
   }
 
   // Hash the password securely
-  const passwordHash = await bcrypt.hash(password, 10);
+  const passwordHash = await hash(password, 10);
 
   try {
     const user = new User({ email, passwordHash });
@@ -52,13 +53,13 @@ export const login = async (req: Request<{}, {}, AuthBody>, res: Response) => {
   }
 
   // Check password validity
-  const isValidPassword = await bcrypt.compare(password, user.passwordHash);
+  const isValidPassword = await compare(password, user.passwordHash);
   if (!isValidPassword) {
     return res.status(401).json({ message: 'Invalid email or password.' });
   }
 
   // Generate JWT token
-  const token = jwt.sign(
+  const token = sign(
     { userId: user._id, email: user.email },
     process.env.JWT_SECRET as string,
     { expiresIn: '1d' }

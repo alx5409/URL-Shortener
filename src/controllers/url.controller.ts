@@ -1,8 +1,9 @@
 import type { Request, Response } from 'express'
+import { Types } from 'mongoose';
+
 import { generateSlug } from '../utils/slug.util.js';
 import { isValidUrl } from '../utils/url.util.js';
 import { Url } from '../models/url.model.js';
-import { Types } from 'mongoose';
 
 // Controller to handle URL shortening
 export const shortenUrl = async (req: Request, res: Response) => {
